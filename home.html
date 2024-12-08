@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        /* CSS for the video background */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Style the video to cover the background */
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Content style, so text is on top of the video */
+        .content {
+            z-index: 1;
+            text-align: center;
+            position: relative;
+            top: -30px; /* Moves the header text upwards */
+        }
+
+        /* Styles for the tile that holds the buttons */
+        .button-tile {
+            background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        /* Button styles */
+        .button-85 {
+            padding: 0.8em 2.5em; /* Larger button size */
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 255);
+            background: #111;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            text-decoration: none; /* Remove underline for links */
+            font-size: 1.2em;
+            margin: 10px 0; /* Space between buttons */
+            transition: transform 0.1s; /* Click effect */
+        }
+
+        /* Click effect for buttons */
+        .button-85:active {
+            transform: scale(0.95); /* Shrinks button on click */
+        }
+
+        .button-85:before {
+            content: "";
+            background: linear-gradient(
+                45deg,
+                #ff0000,
+                #ff7300,
+                #fffb00,
+                #48ff00,
+                #00ffd5,
+                #002bff,
+                #7a00ff,
+                #ff00c8,
+                #ff0000
+            );
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing-button-85 20s linear infinite;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        @keyframes glowing-button-85 {
+            0% {
+                background-position: 0 0;
+            }
+            50% {
+                background-position: 400% 0;
+            }
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        .button-85:after {
+            z-index: -1;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #222;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        /* Hover effect for the tile */
+        .button-tile:hover {
+            background-color: rgba(0, 0, 0, 0.6); /* Darker transparent background */
+            transform: translateY(-5px); /* Move tile slightly upwards */
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop>
+        <source src="static/videoplayback.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Content -->
+    <div class="content">
+        <h1>Welcome to the Galaxy Exploration App</h1>
+        <div class="button-tile">
+            <a href="{{ url_for('login') }}" class="button-85" role="button">Login</a>
+            <a href="{{ url_for('signup') }}" class="button-85" role="button">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>

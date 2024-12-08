@@ -1,0 +1,7 @@
+/* Example CSS for a more transparent login container */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.192); /* White background with 80% opacity */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(219, 219, 219, 0.205); /* Slight shadow for depth */
+}

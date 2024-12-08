@@ -1,0 +1,155 @@
+ <!--  TOOLS ---static\videoplayback.mp4 -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+     <title>Interactive Login</title>
+     <style>
+         * {
+             box-sizing: border-box;
+             margin: 0;
+             padding: 0;
+         }
+ 
+         body {
+             font-family: Arial, sans-serif;
+             height: 100vh;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             background-size: cover;
+             background-position: center;
+             overflow: hidden;
+         }
+ 
+         video {
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+             z-index: -1;
+         }
+ 
+         .login-container {
+             /* background: rgb(255, 255, 255); */
+             padding: 5vw;
+             border-radius: 20px;
+             width: 80vw;
+             max-width: 500px;
+             box-shadow: 0 0 30px rgba(150, 149, 149, 0.274);
+             backdrop-filter: blur(15px);
+             color: rgb(255, 255, 255);
+             text-align: center;
+             animation: floatUpDown 2.5s infinite ease-in-out;
+         } 
+         @keyframes floatUpDown {
+             0%, 100% {
+                 transform: translateY(0);
+             }
+             50% {
+                 transform: translateY(-10px);
+             }
+         }
+    
+ 
+         h2 {
+             margin-bottom: 20px;
+             color: #ffffff;
+             font-weight: bold;
+             font-size: 2rem;
+         }
+ 
+         input {
+             width: 100%;
+             padding: 1.2em;
+             margin: 1em 0;
+             border: none;
+             border-radius: 5px;
+             background: rgba(255, 255, 255, 0.9);
+             font-size: 1rem;
+             transition: background-color 0.3s, transform 0.2s;
+         }
+ 
+         input:focus {
+             outline: none;
+             background-color: #ffffff;
+             transform: translateY(-2px);
+         }
+ 
+         input[type="submit"] {
+             background-color: #4CAF50;
+             color: white;
+             font-weight: bold;
+             cursor: pointer;
+             transition: background-color 0.3s;
+         }
+ 
+         input[type="submit"]:hover {
+             background-color: #45a049;
+         }
+ 
+         .signup-link {
+             margin-top: 20px;
+         }
+ 
+         a {
+             color: #00bcd4;
+             text-decoration: none;
+             font-weight: bold;
+             transition: color 0.3s;
+         }
+ 
+         a:hover {
+             color: #0288d1;
+             text-decoration: underline;
+         }
+     </style>
+ </head>
+ <body>
+     <video autoplay muted loop>
+         <source src="static\videoplayback.mp4" type="video/mp4">
+         Your browser does not support the video tag.
+     </video>
+     <div class="login-container">
+        <div class="company-name">Astronomical Exploration</div>
+        <div class="company-name">  </div>
+
+         <h2>Login</h2>
+         <!-- <div class="company-name">Astronomical Exploration</div> -->
+         <form method="POST">
+             <input type="text" name="username" placeholder="Username" required>
+             <input type="password" name="password" placeholder="Password" required>
+             <input type="submit" value="Sign In">
+         </form>
+         <div class="signup-link">
+             <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+         </div>
+     </div>
+     <script>
+        const loginContainer = document.getElementById('loginContainer');
+
+        document.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            const offsetX = (clientX - centerX) / centerX;
+            const offsetY = (clientY - centerY) / centerY;
+
+            // Set a maximum translation value
+            const maxTranslate = 15; // Adjust this value for stronger or weaker effect
+
+            // Calculate the translation
+            const translateX = offsetX * maxTranslate;
+            const translateY = offsetY * maxTranslate;
+
+            // Apply the translation
+            loginContainer.style.transform = `translate(${translateX}px, ${translateY}px)`;
+        });
+    </script>
+ </body>
+ </html>
+ 
