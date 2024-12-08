@@ -1,4 +1,5 @@
-# galaxy-exploration-using-python
+Its basically a  Webpage created using 'FLASk' where a user can signup/login and explore different stars & galaxys
+I have used PYTHON , CSS , HTML.
 
 
 
