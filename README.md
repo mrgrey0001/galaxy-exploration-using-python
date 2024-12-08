@@ -1,4 +1,5 @@
-Its basically a  Webpage created using 'FLASk' where a user can signup/login and explore different stars & galaxys
+Its basically a  Webpage created using 'FLASk' where a user can signup/login and explore different stars & galaxys.
+/n
 I have used PYTHON , CSS , HTML.
 
 
